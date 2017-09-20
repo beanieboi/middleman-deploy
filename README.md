@@ -26,9 +26,9 @@ following to `config.rb`:
 
 ```ruby
 activate :deploy do |deploy|
-  deploy.deploy_method = :rsync
-  deploy.host          = 'www.example.com'
-  deploy.path          = '/srv/www/site'
+  deploy.deploy = :rsync
+  deploy.host   = 'www.example.com'
+  deploy.path   = '/srv/www/site'
   # Optional Settings
   # deploy.user  = 'tvaughan' # no default
   # deploy.port  = 5309 # ssh port, default: 22
@@ -44,10 +44,9 @@ following to `config.rb`:
 
 ```ruby
 activate :deploy do |deploy|
-  deploy.deploy_method = :git
-  # Optional Settings
-  # deploy.remote   = 'custom-remote' # remote name or git url, default: origin
-  # deploy.branch   = 'custom-branch' # default: gh-pages
+  deploy.deploy = :git
+  # Optional S   # deploy.remote   = 'custom-remote' # remote name or git url, default: origin
+  # deploy.bran  ch   = 'custom-branch' # default: gh-pages
   # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
   # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
 end
@@ -70,11 +69,11 @@ Activate the extension by adding the following to `config.rb`:
 
 ```ruby
 activate :deploy do |deploy|
-  deploy.deploy_method   = :ftp
-  deploy.host            = 'ftp.example.com'
-  deploy.path            = '/srv/www/site'
-  deploy.user            = 'tvaughan'
-  deploy.password        = 'secret'
+  deploy.deploy   = :ftp
+  deploy.host     = 'ftp.example.com'
+  deploy.path     = '/srv/www/site'
+  deploy.user     = 'tvaughan'
+  deploy.password = 'secret'
 end
 ```
 
@@ -84,10 +83,10 @@ Activate the extension by adding the following to `config.rb`:
 
 ```ruby
 activate :deploy do |deploy|
-  deploy.deploy_method   = :sftp
-  deploy.host            = 'sftp.example.com'
-  deploy.port            = 22
-  deploy.path            = '/srv/www/site'
+  deploy.deploy   = :sftp
+  deploy.host     = 'sftp.example.com'
+  deploy.port     = 22
+  deploy.path     = '/srv/www/site'
   # Optional Settings
   # deploy.user     = 'tvaughan' # no default
   # deploy.password = 'secret' # no default
@@ -115,15 +114,15 @@ Deploy your site to more than one configuration using environment variables.
 case ENV['TARGET'].to_s.downcase
 when 'production'
   activate :deploy do |deploy|
-    deploy.deploy_method   = :rsync
-    deploy.host            = 'www.example.com'
-    deploy.path            = '/srv/www/production-site'
+    deploy.deploy   = :rsync
+    deploy.host     = 'www.example.com'
+    deploy.path     = '/srv/www/production-site'
   end
 else
   activate :deploy do |deploy|
-    deploy.deploy_method   = :rsync
-    deploy.host            = 'staging.example.com'
-    deploy.path            = '/srv/www/staging-site'
+    deploy.deploy   = :rsync
+    deploy.host     = 'staging.example.com'
+    deploy.path     = '/srv/www/staging-site'
   end
 end
 ```
